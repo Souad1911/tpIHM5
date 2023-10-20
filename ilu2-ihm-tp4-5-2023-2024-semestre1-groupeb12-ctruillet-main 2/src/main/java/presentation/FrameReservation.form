@@ -104,20 +104,15 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                          <Component id="jLabelDate" min="-2" pref="124" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                          <Component id="datePicker" min="-2" pref="157" max="-2" attributes="0"/>
-                      </Group>
+                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jLabelDate" pref="124" max="32767" attributes="0"/>
+                      <Component id="jDateChooser1" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jComboBoxHeure" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelHeure" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBoxHeure" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
               </Group>
@@ -132,9 +127,9 @@
                       <Component id="jLabelHeure" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="datePicker" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBoxHeure" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jComboBoxHeure" min="-2" max="-2" attributes="0"/>
+                      <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
               </Group>
@@ -142,15 +137,6 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="com.github.lgooddatepicker.components.DatePicker" name="datePicker">
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-            <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="datePicker.addDateChangeListener(new DateChangeListener(){&#xa;    public void dateChanged(DateChangeEvent dateEvent) {&#xa;        datePickerDateChanged(dateEvent);&#xa;    }&#xa;});&#xa;"/>
-          </AuxValues>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabelDate">
           <Properties>
             <Property name="text" type="java.lang.String" value="1.Choisir la date "/>
@@ -178,6 +164,8 @@
             <Property name="text" type="java.lang.String" value="2.Choisir l&apos;heure"/>
           </Properties>
         </Component>
+        <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="nbPersonsPanel">
@@ -195,10 +183,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                          <Component id="jComboBoxNBPersonnes" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jComboBoxNBPersonnes" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelNBpersonnes" min="-2" pref="226" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>

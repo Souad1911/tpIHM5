@@ -7,6 +7,7 @@ package presentation;
 import com.github.lgooddatepicker.optionalusertools.DateChangeListener;
 import com.github.lgooddatepicker.zinternaltools.DateChangeEvent;
 import dialog.DialogReservation;
+import java.awt.event.ActionEvent;
 import java.time.LocalDate;
 
 @SuppressWarnings("serial")
@@ -38,15 +39,10 @@ public class FrameReservation extends javax.swing.JFrame {
         menu3 = new java.awt.Menu();
         menu4 = new java.awt.Menu();
         dateTimePanel = new javax.swing.JPanel();
-        datePicker = new com.github.lgooddatepicker.components.DatePicker();
-        datePicker.addDateChangeListener(new DateChangeListener(){
-            public void dateChanged(DateChangeEvent dateEvent) {
-                datePickerDateChanged(dateEvent);
-            }
-        });
         jLabelDate = new javax.swing.JLabel();
         jComboBoxHeure = new javax.swing.JComboBox<>();
         jLabelHeure = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         nbPersonsPanel = new javax.swing.JPanel();
         jLabelNBpersonnes = new javax.swing.JLabel();
         jComboBoxNBPersonnes = new javax.swing.JComboBox<>();
@@ -84,17 +80,14 @@ public class FrameReservation extends javax.swing.JFrame {
         dateTimePanelLayout.setHorizontalGroup(
             dateTimePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dateTimePanelLayout.createSequentialGroup()
-                .addGroup(dateTimePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(dateTimePanelLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabelDate, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(dateTimePanelLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(29, 29, 29)
+                .addGroup(dateTimePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelDate, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(dateTimePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBoxHeure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelHeure))
+                    .addComponent(jLabelHeure)
+                    .addComponent(jComboBoxHeure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(78, 78, 78))
         );
         dateTimePanelLayout.setVerticalGroup(
@@ -105,14 +98,11 @@ public class FrameReservation extends javax.swing.JFrame {
                     .addComponent(jLabelDate)
                     .addComponent(jLabelHeure))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(dateTimePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxHeure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(dateTimePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBoxHeure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51))
         );
-
-        datePicker.getAccessibleContext().setAccessibleName("");
-        datePicker.getAccessibleContext().setAccessibleDescription("");
 
         nbPersonsPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -127,9 +117,7 @@ public class FrameReservation extends javax.swing.JFrame {
             .addGroup(nbPersonsPanelLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addGroup(nbPersonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(nbPersonsPanelLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jComboBoxNBPersonnes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxNBPersonnes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelNBpersonnes, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -224,12 +212,12 @@ public class FrameReservation extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.github.lgooddatepicker.components.DatePicker datePicker;
     private javax.swing.JPanel dateTimePanel;
     private javax.swing.JButton jButtonAnnuler;
     private javax.swing.JButton jButtonValider;
     private javax.swing.JComboBox<String> jComboBoxHeure;
     private javax.swing.JComboBox<String> jComboBoxNBPersonnes;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabelDate;
     private javax.swing.JLabel jLabelHeure;
     private javax.swing.JLabel jLabelNBpersonnes;
@@ -270,5 +258,10 @@ public class FrameReservation extends javax.swing.JFrame {
 	this.jLabelHeure.setEnabled(true);
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+     
+    	protected void do_btnValidate_actionPerformed(ActionEvent e) {
+            System.out.println("do_btnValidate_actionPerformed called");
+		this.dialog.handleValidateEvent();
+	}
 
 }
